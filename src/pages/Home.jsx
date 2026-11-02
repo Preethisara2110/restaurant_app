@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, MapPin, ChevronDown, Sparkles } from 'lucide-react';
+import { Search, MapPin, ChevronDown, Sparkles, Utensils, CalendarCheck, ShieldCheck, ArrowRight, ChevronDown as Down } from 'lucide-react';
 import { getStates, getCities } from '../api';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
@@ -102,5 +102,24 @@ export default function Home() {
         {slides.map((src, i) => <SwiperSlide key={src}><div className="experience-slide"><img src={src} alt={`Restaurant dining inspiration ${i + 1}`} /><span>{['The perfect date night', 'Gather around the table', 'Something worth celebrating'][i]}</span></div></SwiperSlide>)}
       </Swiper>
     </section>
+
+    <section className="offers-section container">
+      <div className="section-heading"><span className="section-kicker">SPECIAL OFFERS</span><h2>Good food. <em>Great deals.</em></h2><p>Discover something delicious for your next outing.</p></div>
+      <div className="offer-grid">
+        <article className="offer-card offer-food"><img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?w=900&q=85" alt="Fresh restaurant meal"/><div><span>WEEKEND SPECIAL</span><h3>Make room for<br/>something delicious</h3><strong>50% OFF</strong></div></article>
+        <article className="offer-card offer-dark"><img src="https://images.unsplash.com/photo-1547592180-85f173990554?w=900&q=85" alt="A delicious meal"/><div><span>THE FOOD EDIT</span><h3>Explore new<br/>favourites</h3><strong>DISCOVER MORE</strong></div></article>
+        <article className="offer-card offer-food"><img src="https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?w=900&q=85" alt="Colorful healthy food"/><div><span>FRESH PICKS</span><h3>Every bite<br/>is a good idea</h3><strong>50% OFF</strong></div></article>
+      </div>
+    </section>
+
+    <section className="about-band"><div className="container about-inner"><div className="about-icon"><Utensils size={38}/></div><div><span className="section-kicker">WELCOME TO TABLEEASE</span><h2>Restaurant <em>Food & Drinks</em></h2><p>Make every meal memorable. Find a place you love, choose a time that works, and book your table in just a few clicks.</p><ul><li><CalendarCheck size={16}/> Easy online reservations</li><li><ShieldCheck size={16}/> No booking fees</li><li><MapPin size={16}/> Restaurants across the USA</li></ul></div></div></section>
+
+    <section className="news-section container"><div className="section-heading"><span className="section-kicker">A LITTLE INSPIRATION</span><h2>Read our latest <em>news.</em></h2></div><div className="news-grid">{[{img:'https://images.unsplash.com/photo-1498833766827-4b8f6b8f5e6a?w=700&q=80',title:'The joy of discovering a new favourite'},{img:'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=700&q=80',title:'A table for every special occasion'},{img:'https://images.unsplash.com/photo-1559339352-11d035aa65de?w=700&q=80',title:'Make your next dining experience count'}].map((item,i)=><article className="news-card" key={item.title}><img src={item.img} alt="Restaurant dining"/><small>DINING · {i+1} MIN READ</small><h3>{item.title}</h3><a href="#locations">Read more <ArrowRight size={13}/></a></article>)}</div></section>
+
+    <section className="booking-info-band"><div className="container booking-info-inner"><div><span className="section-kicker">SIMPLE FROM START TO FINISH</span><h2>Table booking,<br/><em>made easy.</em></h2><p>Choose your destination, find your favourite restaurant, and reserve your table. Your next great meal is only a few clicks away.</p><a className="book-button" href="#locations">Find a restaurant <ArrowRight size={15}/></a></div><img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&q=85" alt="People enjoying a restaurant experience"/></div></section>
+
+    <section className="faq-section container"><div className="section-heading"><span className="section-kicker">NEED A HAND?</span><h2>Frequently asked <em>questions.</em></h2></div><div className="faq-layout"><img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=900&q=85" alt="Beautiful restaurant interior"/><div><details open><summary>How do I make a restaurant reservation?<Down size={16}/></summary><p>Select a state and city, choose a restaurant, then pick your preferred date and time.</p></details><details><summary>Can I book a table in advance?<Down size={16}/></summary><p>Yes. You can reserve a table for any available day within the next seven days.</p></details><details><summary>Is there a reservation fee?<Down size={16}/></summary><p>No. Reservations through TableEase are free.</p></details><details><summary>Where can I view my reservations?<Down size={16}/></summary><p>Open My Bookings from the navigation bar to view or cancel saved reservations.</p></details></div></div></section>
+
+    <section className="app-download"><div className="container app-download-inner"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9?w=550&q=85" alt="Mobile restaurant booking"/><div><span className="section-kicker">GOOD FOOD IS JUST A TAP AWAY</span><h2>Download the<br/><em>Restaurant Booking App</em></h2><p>Discover restaurants and keep your dining plans close at hand.</p><a className="book-button" href="#locations">Explore restaurants <ArrowRight size={15}/></a></div></div></section>
   </main>;
 }
